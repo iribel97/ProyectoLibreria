@@ -1,0 +1,50 @@
+.objetos {
+
+    width: 800px;
+    height: 150px;
+    position: absolute;
+    margin-top: 80px;
+    z-index: -1;
+    padding: 0;
+}
+.imagen-del-autor {
+
+    width: 125px;
+    height: 225px;
+    margin-left: 10px;
+    margin-top: 12.5px;
+    padding: 0;
+
+    #image-preview{
+
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+.atributosLibro{
+
+    .entrada {
+        
+        
+        .input {
+            width: 250px;
+            color: #503737;
+        }
+    }
+}
+
+.oneE {
+    margin-left: 200px;
+    width: 745px;
+}
+
+.selection {
+    width: 250px;
+            color: #503737;
+}
+
+.custom-file-upload {
+    font-size: 0.9rem;
+}

@@ -1,0 +1,159 @@
+
+
+.contenCartas{
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex; /* Hace que los elementos hijos se comporten como elementos flex */
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente fila si no caben en una sola línea */
+}
+
+.card {
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 280px;
+    height: 435px;
+    border-radius: 20px;
+    background: linear-gradient(0deg, rgb(242, 215, 217, 0.5) 0%, rgba(242, 215, 217, 0.857) 100%);
+    box-shadow: 0 0 10px rgb(41, 40, 43), 0 0 10px rgb(60, 59, 63);
+    align-items: center;
+    margin-left: 35px;
+    margin-top: 35px;
+
+    .book-image {
+        max-width: 100%;
+        margin: 0 auto;
+        float:inherit;
+        border-radius: 20px;
+        opacity: 0.7;
+        z-index: -1;
+        object-fit: cover; /* Ajusta la imagen para cubrir todo el espacio */
+        width: 100%; /* Ancho al 100% */
+        height: 100%; /* Altura al 100% */
+    }
+
+    &:hover {
+        transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        box-shadow: none;
+    }
+}
+
+/*Cabecera de la carta donde va a tener los botones*/
+.card .card-header{
+    position: absolute; /* Hacemos que los elementos sean posicionados de forma absoluta */
+    top: 0; /* Los posicionamos en la parte superior */
+    right: 0; /* El botón de eliminar en la esquina superior derecha */
+    left: 0; /* El botón de editar en la esquina superior izquierda */
+    background-color: transparent;
+    border: transparent;
+    padding: 0px;
+    z-index: 1; /* Asegura que los iconos estén encima de la imagen */
+
+    .delete-icon-btn{
+        margin: 10px 20px;
+        float: right;
+
+        &:hover { 
+            transform: scale(1.10);
+            cursor: pointer;
+        }
+    }
+
+    .edit-icon-btm{
+        margin: 10px 20px;
+        float: left;
+        opacity: 0.7;
+
+        &:hover { 
+            transform: scale(1.10);
+            cursor: pointer;
+        }
+    }
+}
+
+.card .card-body{
+    position: absolute; /* Hacemos que los elementos sean posicionados de forma absoluta */
+    z-index: 1;
+    top: 35px;
+    right: 0;
+    left: 0;
+}
+
+.card .card-footer{
+    position: absolute; /* Hacemos que los elementos sean posicionados de forma absoluta */
+    display: flex;
+    background: none;
+    border-top: none;
+    z-index: 1;
+    top: 270px;
+    right: 0;
+    left: 0;
+
+    .author-info{
+        display: flex;  
+        align-items: center;
+        justify-content: space-between;  
+    }
+    
+}
+
+.author-image{
+    border: 3px solid rgb(211, 206, 223);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.author-image img.round {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.download-documents{
+    background-color: rgb(242, 215, 217);
+    z-index: 1;
+    position: absolute; /* Hacemos que los elementos sean posicionados de forma absoluta */
+    top: 375px;
+    width: 140px;
+    height: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(218, 210, 235), 0 0 10px rgb(218, 210, 235);
+    transition: transform 0.3s;
+
+    &:hover {
+        transform: scale(1.05); /* Escalamos el botón un 5% más grande */
+    }
+
+    
+}
+
+a{
+    color: black;
+}
+
+.agregarEdit{
+    transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+    background-color: rgb(242, 215, 217) ;
+    text-align: center;
+    margin: 160px 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+    &:hover { 
+        transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        transform: scale(1.25);
+        cursor: pointer;
+    }
+}
+
+.agregarEdit img{
+
+    width: 100px;
+    height: 100px;
+}
+
+
+

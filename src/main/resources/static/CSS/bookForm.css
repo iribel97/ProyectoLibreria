@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&family=Maven+Pro&family=Meow+Script&family=Parisienne&family=Petit+Formal+Script&family=Playfair+Display&family=Rouge+Script&family=Sofia&family=Urbanist:wght@300&display=swap');
+
+::selection {
+    background-color: gray;
+}
+
+.contenedorBody {
+    margin-top: 120px;
+}
+
+.container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    width: 800px;
+    height: 530px;
+    background-image: linear-gradient(to right, rgba(251, 186, 191, 0.541), rgba(161, 149, 190, 0.516));
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0.5rem;
+}
+
+.title {
+    color: rgb(116, 141, 166);
+    margin: 3rem 0;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 2rem;
+}
+
+.input {
+    margin: 0.5rem 0;
+    padding: 1rem 0.5rem;
+    width: 20rem;
+    background-color: inherit;
+    color: wheat;
+    border: none;
+    outline: none;
+}
+
+.username {
+    border-bottom: 1px solid rgb(170, 138, 141);
+    transition: all 400ms;
+}
+
+.username:hover {
+    background-color: rgba(187, 129, 134, 0.541);
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.password {
+    border-bottom: 1px solid wheat;
+    transition: all 400ms;
+}
+
+.password:hover {
+    background-color: #424242;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.btn {
+    height: 3rem;
+    width: 20rem;
+    margin-top: 3rem;
+    background-color: rgba(166, 155, 190, 0.468);
+    border-radius: 0.5rem;
+    color: rgb(116, 141, 166);
+    border: none;
+    font-size: 1.2rem;
+    transition: all 400ms;
+    box-shadow: 0 0 10px  rgba(166, 155, 190, 0.468), 0 0 10px rgba(166, 155, 190, 0.468);
+}
+
+.btn:hover {
+    background-color: rgb(166, 155, 190);
+    box-shadow: none;
+}
+
+/* HACER QUE UN INPUT DE TIPO NUMERO PAREZCA DE TEXTO */
+/* Reset input number styles */
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/*---------------------MI FORMATO --------------------*/
+.atributosLibro {
+    width: 800px;
+}
+
+.atributosLibro .entrada {
+    display: inline;
+    margin: 30px;
+}
+
+/* Estilo para el campo de carga de archivos */
+input[type="file"] {
+    display: none;
+    /* Oculta el campo de carga de archivos por defecto */
+}
+
+/* Estilo para el botón personalizado */
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    height: 3rem;
+    width: 20rem;
+    margin: 1rem 2rem 2rem 2.5rem;
+    background-color: rgb(249, 185, 189);
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1.2rem;
+
+    text-align: center;
+    transition: all 400ms;
+    color: rgb(116, 141, 166);
+    color: gray;
+    box-shadow: 0 0 10px rgb(249, 185, 189), 0 0 10px rgb(249, 185, 189);
+}
+
+.custom-file-upload:hover {
+    background-color: rgba(187, 129, 134, 0.541);
+    color: antiquewhite;
+    box-shadow: none;
+}
+
+/*  FORMATO PARA LOS SELECT */
+
+.selection {
+    /* Cambiar el color de fondo y del texto */
+    background-color: #f2f2f200;
+    color: #6c6969;
+
+    /* Cambiar el borde y su estilo */
+    border: transparent;
+    border-bottom: 1px solid rgb(170, 138, 141);
+    border-radius: 4px;
+
+    /* Añadir un relleno para mayor espacio interior */
+    padding: 15px;
+
+    /* Cambiar el tamaño de la fuente */
+    font-size: 14px;
+
+    /* Cambiar el cursor al pasar el ratón sobre el select */
+    cursor: pointer;
+
+    /* Eliminar el estilo predeterminado del sistema operativo */
+    appearance: none;
+    width: 20rem;
+
+    /* Cambiar la apariencia de la flecha desplegable (se puede personalizar más) */
+    background-image: url('/IMG/flechaSelect.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 10px;/* Ajusta el espacio para la flecha */
+    background-size: 20px 20px;/* Ajusta el tamaño de la imagen de la flecha */
+}
+
+/* Estilo para las opciones dentro del select */
+.selection option {
+    /* Cambiar el color de fondo y del texto al seleccionar una opción */
+    background-color: rgb(211, 206, 223);
+    margin: 5px 0; /* Agrega un margen de 5px arriba y abajo */
+    padding: 5px; /* Agrega espacio interno dentro de cada opción */
+    color: rgb(116, 141, 166);
+}
+
+/* Estilo para el texto de la opción seleccionada */
+.selection option:checked {
+    /* Cambiar el color de fondo y del texto de la opción seleccionada */
+    background-color: rgb(156, 180, 204);
+    color: #fff;
+}
+

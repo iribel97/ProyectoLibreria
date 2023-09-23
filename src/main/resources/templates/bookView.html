@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Books</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Poner un icono para la pagina web -->
+    <link rel="icon" href="/IMG/Iri.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="/CSS/viewBKS.css">
+</head>
+
+<body>
+    <header class="barraInicial">
+        <div class="imagenLogo">
+            <a th:href="@{/}">
+                <img src="/IMG/magic.png" width="80" height="80">
+            </a>
+        </div>
+        <div class="nombrePag">
+            <h1>Iribel's Library</h1>
+        </div>
+        <div class="user">
+            <div class="user-avatar">
+                <img src="/IMG/admin.png" alt="Usuario" width="60" height="60">
+            </div>
+            <nav class="menu">
+                <ul class="user-menu">
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/author/view}">Authors</a></li>
+                    <li><a th:href="@{/editorial/view}">Editorials</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+    <div class="contenedorBody">
+        <div class="contenCartas">
+            
+            <div class="card" th:each="book : ${books}">
+                
+                <img class="book-image" th:src="@{'/IMG/imgPortadas/'+ ${book.coverImage}}"
+                    alt="Book Image">
+              
+                
+                <div class="card-header">
+
+                    <a class="edit-icon-btm" th:href="@{/book/edit/__${book.isbn}__}">
+                        <img src="/IMg/editar.png" alt="Edit" width="20px" height="20px">
+                    </a>
+                    <a class="delete-icon-btn">
+                        <img src="/IMG/basura.png" alt="Delete" width="20px" height="20px">
+                    </a>
+                    
+                </div>
+                <div class="card-body">
+                    <div class="book-details">
+                        <small>ISBN: <small class="isbn" th:text="${book.isbn}"></small></small>
+                        <h4 class="title" th:text="${book.title}"></h4>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="author-info">
+                        <div class="author-image">
+                            <img class="round" th:src="@{'/IMG/imgAutores/'+ ${book.author.image}}"
+                                alt="Generic placeholder image">
+                        </div>
+                        <div class="author-text">
+                            <h6 class="author-name" th:text="${book.author.name}"></h6>
+                            <small class="editorial-name" th:text="${book.editorial.name}"></small>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="download-documents">
+                    <img src="/IMG/flecha-hacia-abajo.png" alt="Download" width="20px" height="20px">
+                    <a th:href="@{'/BookDocument/'+ ${book.ebook}}">
+                        
+                        Download
+                    </a>
+                </div>
+                              
+            </div>
+            <div class="card" >
+                <div class="agregarEdit">
+                    <a th:href="@{/book/form}">
+                        <img src="/IMG/agregar.png" alt="">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

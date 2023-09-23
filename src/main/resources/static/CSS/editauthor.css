@@ -1,0 +1,47 @@
+
+.objetos {
+
+    width: 500px;
+    height: 150px;
+    position: absolute;
+    margin-top: 80px;
+    z-index: -1;
+    padding: 0;
+}
+.imagen-del-autor {
+
+    width: 125px;
+    height: 125px;
+    margin-left: 10px;
+    margin-top: 12.5px;
+    padding: 0;
+
+    #image-preview{
+        border-radius: 50%;
+
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.objetos-del-autor{
+    width: 500px;
+    height: 150px;
+    position: absolute;
+    margin-top: 80px;
+    z-index: 4;
+}
+
+.username {
+    
+    position: absolute;
+    margin-left: 170px;
+    color: #000000;
+    margin-top: 32.5px;
+    z-index: 100;
+}
+
+.custom-file-upload  {
+    margin-top: 6.5rem;
+    margin-bottom: 1rem;
+}
