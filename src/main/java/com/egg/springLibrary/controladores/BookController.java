@@ -191,9 +191,9 @@ public class BookController {
                 int index = documentBook.getOriginalFilename().indexOf(".");
                 String extension = "";
                 extension = "."+documentBook.getOriginalFilename().substring(index+1);
-                nombreDocumento = titleBook + extension;
+                nombreDocumento = documentBook.getOriginalFilename() + extension;
                 //realizamos la ruta completa
-                Path completeBookDirectory = Paths.get(rutaBookAbs + "//" + nombreDocumento);
+                Path completeBookDirectory = Paths.get(rutaBookAbs + "//" + documentBook.getOriginalFilename());
                 
                 Files.write(completeBookDirectory, documentBook.getBytes());
                 
