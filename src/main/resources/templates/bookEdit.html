@@ -85,14 +85,14 @@
 
                         </div>
                     </div>
-                    <div class="atributosLibro">
+                    <div class="atributosLibro" >
                         <label class="custom-file-upload">
                             <span>Books's image</span>
                             <!--PARA QUE EL USUARIO INGRESE UNA IMAGEN-->
                             <input type="file" class="imagen input" name="imageBook" accept=".jpg, .png">
                         </label>
-                        <label class="custom-file-upload">
-                            <span th:text="${book.ebook}"></span>
+                        <label class="custom-file-upload" style="margin-left: 440px;">
+                            <span th:text="${book.ebook}" ></span>
                             <input type="file" id="documento" name="documentBook" accept=".pdf, .epub">
                         </label>
 
@@ -100,7 +100,7 @@
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary" style="margin-top: 20px">Update</button>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 120px">Update</button>
                 </form>
             </div>
         </div>
