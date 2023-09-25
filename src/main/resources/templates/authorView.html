@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     <header class="barraInicial">
         <div class="imagenLogo">
             <a th:href="@{/}">
@@ -38,11 +39,19 @@
         </div>
     </header>
     <div class="contenedorBody">
-        <div class="cartaAuthor" >
-            <div class="card" th:each="author : ${authors}" th:txt="${author.id}">
-                <button class="mail">
-                    <img src="/IMG/basura.png" alt="delete" width="20px" height="20px">
+        <div class="cartaAuthor">
+            <div class="card" th:each="author : ${authors}">
+
+                <!-- RECORDAR QUE EL ID NO SE MODIFICA POR LO QUE SE DEBE DE HACER -->
+                <input type="hidden" name="id" th:value="${author.id}">     
+
+                <button class="mail" id="abrirVentana">
+                    <a th:href="@{/author/deleteAuthor/__${author.id}__}" >
+                        <img src="/IMG/basura.png" alt="delete" width="20px" height="20px">
+                    </a>
+                    
                 </button>
+
                 <div class="profile-pic">
                     <img th:src="@{'/IMG/imgAutores/'+ ${author.image}}" alt="">
                 </div>
@@ -55,6 +64,8 @@
                         <button class="button viewBook">VIEW</button>
                     </div>
                 </div>
+
+                
             </div>
             <div class="card">
                 <div class="agregarEdit">
@@ -66,7 +77,11 @@
 
         </div>
 
+
     </div>
+
+
+    
 </body>
 
 </html>

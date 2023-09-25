@@ -143,5 +143,27 @@ public class AuthorController {    //localhost:8080/author
         //si todo sale bien
         return "redirect:../view";
     }
+
+    //Vamos a eliminar un autor
+    @GetMapping("/deleteAuthor/{id}")
+    public String deleteAuthor(@PathVariable String id, ModelMap model){
+       model.put("author", aServ.getOne(id));
+       return "authorDelete.html";
+    }
+
+
+    @PostMapping("/deleteAuthor/{id}")
+    public String deleteAnAuthor(@PathVariable String id, ModelMap model){
+        try {
+            //Elimina el autor
+            aServ.deleteAnAuthor(id);
+            //Redirecciona a la vista de autores
+            return "redirect:../view";
+
+        }catch(MyException ex){
+            model.put("error", ex.getMessage());
+            return "authorDelete.html";
+        }
+    }
 }
 

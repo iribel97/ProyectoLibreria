@@ -197,3 +197,12 @@
     width: 100px;
     height: 100px;
 }
+
+/*VENTANA EMERGENTE*/
+.confirm-Window{
+    display: none;
+    position: absolute; /* Hacemos que los elementos sean posicionados de forma absoluta */
+    margin: 500px;
+    z-index: 1000;
+}
+

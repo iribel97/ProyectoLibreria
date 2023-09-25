@@ -78,6 +78,23 @@ public class AuthorService {
     public Author getOne(String id){
         return aRepo.getOne(id);
     }
+
+
+    //ELIMINAR AUTOR
+    @Transactional
+    public void deleteAnAuthor(String idAuthor) throws MyException{
+        //Verificar que el autor exista
+        Optional<Author> answerA = aRepo.findById(idAuthor);
+
+        //caso de que el autor si exista
+        if(answerA.isPresent()){
+            //traemos el autor
+            Author author = answerA.get();
+
+            //se elimina el autor por un metodo que tiene el repositorio por default
+            aRepo.delete(author);
+        }
+    }
     
     // METODO PARA MANEJAR LA EXCEPCION ----------------------------------------------------------------------------------------------
     private void validar( String nameA) throws MyException {

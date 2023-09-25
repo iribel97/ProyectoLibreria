@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit</title>
+    <title>Delete</title>
     <!-- Poner un icono para la pagina web -->
     <link rel="icon" href="/IMG/Iri.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="/CSS/index.css">
     <link rel="stylesheet" href="/CSS/authorForm.css">
+    <link rel="stylesheet" href="/CSS/editauthor.css">
 </head>
 <body>
     <header class="barraInicial">
@@ -29,32 +30,25 @@
                 <ul class="user-menu">
                     <li><a th:href="@{/}">Home</a></li>
                     <li><a th:href="@{/book/view}">Books</a></li>
-                    <li><a th:href="@{/author/view}">Authors</a></li> 
+                    <li><a th:href="@{/editorial/view}">Editorials</a></li>
                 </ul>
             </nav>
-            
+
         </div>
     </header>
     <div class="contenedorBody">
-        <div class="formularioLibro">
-            <div class="container">
-                <form class="form" th:action="@{/editorial/edit/__${editorial.id}__}" method="POST">
-
-                    <!-- RECORDAR QUE EL ID NO SE MODIFICA POR LO QUE SE DEBE DE HACER -->
-                    <input type="hidden" name="id" th:value="${editorial.id}">
-
-                    <p class="title">Edit the Editorial</p>
-
-                    <!-- el atributo "name" hace referencia al nombre de la variable que recibe como parametro
-                    en el metodo register del controller -->
-                    <input type="text" th:value="${editorial.name}" class="username input" name="nameEditorial">
-
-
-
-                    <button type="submit" class="btn btn-primary" style="margin-top: 20px">Update</button>
-                </form>
-            </div>
+        <div class="container">
+            <form class="form" th:action="@{/author/deleteAuthor/__${author.id}__}" method="POST"
+                enctype="multipart/form-data"> 
+            <input type="hidden" name="id" th:value="${author.id}">
+            <p class="title" style="text-align: center;">Are you sure to delete the author "<span th:text="${author.name}"></span>"</p>
+            <button type="submit" class="btn btn-primary" style="margin-top: 20px">YES</button>
+            <button class="btn btn-primary" style="margin-top: 20px"><a th:href="@{/author/view}">NO</a></button>
+        </form>
         </div>
-    
+        
+
+    </div>
+
 </body>
 </html>
