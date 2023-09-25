@@ -49,7 +49,7 @@
                     
                 </div>
                 <div class="nombre-editorial" >
-                    <a class="view-editorials" href="" th:text="${editorial.name}"></a>
+                    <a class="view-editorials" th:href="@{/editorial/viewBooks/__${editorial.id}__}" th:text="${editorial.name}"></a>
                 </div>
             </div>
 

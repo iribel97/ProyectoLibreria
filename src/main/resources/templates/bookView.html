@@ -42,9 +42,64 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         </div>
     </header>
     <div class="contenedorBody">
-        <div class="contenCartas">
+        <div class="contenCartas" th:if="${books != null}">
             
             <div class="card" th:each="book : ${books}">
+                
+                <img class="book-image" th:src="@{'/IMG/imgPortadas/'+ ${book.coverImage}}"
+                    alt="Book Image">
+              
+                
+                <div class="card-header">
+
+                    <a class="edit-icon-btm" th:href="@{/book/edit/__${book.isbn}__}">
+                        <img src="/IMg/editar.png" alt="Edit" width="20px" height="20px">
+                    </a>
+                    <a class="delete-icon-btn" th:href="@{/book/deleteBook/__${book.isbn}__}">
+                        <img src="/IMG/basura.png" alt="Delete" width="20px" height="20px">
+                    </a>
+                    
+                </div>
+                <div class="card-body">
+                    <div class="book-details">
+                        <small>ISBN: <small class="isbn" th:text="${book.isbn}"></small></small>
+                        <h4 class="title" th:text="${book.title}"></h4>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="author-info">
+                        <div class="author-image">
+                            <img class="round" th:src="@{'/IMG/imgAutores/'+ ${book.author.image}}"
+                                alt="Generic placeholder image">
+                        </div>
+                        <div class="author-text">
+                            <h6 class="author-name" th:text="${book.author.name}"></h6>
+                            <small class="editorial-name" th:text="${book.editorial.name}"></small>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="download-documents">
+                    <img src="/IMG/flecha-hacia-abajo.png" alt="Download" width="20px" height="20px">
+                    <a th:href="@{'/BookDocument/'+ ${book.ebook}}">
+                        
+                        Download
+                    </a>
+                </div>
+                              
+            </div>
+            <div class="card" >
+                <div class="agregarEdit">
+                    <a th:href="@{/book/form}">
+                        <img src="/IMG/agregar.png" alt="">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contenCartas" th:if="${booksA != null}">
+            <div class="card" th:each="book : ${booksA}">
                 
                 <img class="book-image" th:src="@{'/IMG/imgPortadas/'+ ${book.coverImage}}"
                     alt="Book Image">

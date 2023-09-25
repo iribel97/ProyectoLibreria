@@ -53,6 +53,13 @@ public class EditorialController {
         return "editorialView.html";
     }
 
+    //VER LIBROS POR EDITORIAL
+    @GetMapping("/viewBooks/{id}")
+    public String viewBooksByEditorial(@PathVariable String id, ModelMap model){
+        model.addAttribute("booksA", bServ.listAllBooksByEditorial(eServ.getOne(id).getName()));
+        return "bookView.html";
+    }
+
     @GetMapping("/edit/{id}")
     public String editEditorial(@PathVariable String id, ModelMap model){
         model.addAttribute("editorial", eServ.getOne(id));

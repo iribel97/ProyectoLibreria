@@ -99,6 +99,14 @@ public class AuthorController {    //localhost:8080/author
         return "authorView.html";
     }
 
+    //VER LIBROS POR AUTOR
+    @GetMapping("/viewBooks/{id}")
+    public String viewBooksByAuthor(@PathVariable String id, ModelMap model){
+        List<Book> books = bServ.listAllBooksByAuthor(aServ.getOne(id).getName());
+        model.put("booksA", books);
+        return "bookView.html";
+    }
+
     @GetMapping("/edit/{id}")
     public String editAuthor(@PathVariable String id, ModelMap model){ //el id debe de viajar
         model.put("author", aServ.getOne(id));
