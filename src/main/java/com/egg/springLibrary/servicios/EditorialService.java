@@ -68,6 +68,20 @@ public class EditorialService {
         }
     }
 
+    //ELIMINAR EDITORIAL ----------------------------------------------------------------------------------------------------------
+    public void deleteEditorialById(String id) throws MyException{
+        //ver si existe editorial
+        Optional<Editorial> answerE = eRepo.findById(id);
+
+        if(answerE.isPresent()){
+            //instanciamos un objeto de tipo Editorial
+            Editorial editorial = answerE.get();
+            
+            //eliminamos
+            eRepo.delete(editorial);
+        }
+    }
+
     // TRAER UNA SOLO EDITORIAL --------------------------------------------------------------------------------------------------
     public Editorial getOne(String id){
         return eRepo.getOne(id);

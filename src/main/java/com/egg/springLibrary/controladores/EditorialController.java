@@ -2,6 +2,7 @@
 package com.egg.springLibrary.controladores;
 
 import com.egg.springLibrary.excepciones.MyException;
+import com.egg.springLibrary.servicios.BookService;
 import com.egg.springLibrary.servicios.EditorialService;
 //import java.util.logging.Level;
 //import java.util.logging.Logger;
@@ -24,6 +25,8 @@ public class EditorialController {
     
     @Autowired
     private EditorialService eServ;
+    @Autowired
+    private BookService bServ;
     
     @GetMapping("/form")
     public String author(){  //localhost:8080/editorial/form
@@ -66,6 +69,33 @@ public class EditorialController {
         }
 
         return "redirect:../view";
+    }
+
+
+    //ELIMINAR UNA EDITORIAL
+    @GetMapping("/deleteEditorial/{id}")
+    public String deleteEditorial(@PathVariable String id, ModelMap model){
+        model.put("editorial", eServ.getOne(id));
+        return "Delete.html";
+    }
+
+    @PostMapping("/deleteEditorial/{id}")
+    public String deleteAnEfitorial(@PathVariable String id, ModelMap model){
+        try{
+             //comprobamos que la lista de los libro no este vacia
+             if(!bServ.listAllBooksByEditorial(eServ.getOne(id).getName()).isEmpty()){
+                //en el caso de que no este vacia, se procede a eliminar los libros por autor
+                bServ.deleteBookByEditorial(id);
+            }
+
+            //Elimina el autor
+            eServ.deleteEditorialById(id);
+            //Redirecciona a la vista de autores
+            return "redirect:../view";
+        }catch(MyException ex){
+            model.put("error", ex.getMessage());
+            return "Delete.html";
+        }
     }
 
 }
