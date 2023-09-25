@@ -148,7 +148,7 @@ public class AuthorController {    //localhost:8080/author
     @GetMapping("/deleteAuthor/{id}")
     public String deleteAuthor(@PathVariable String id, ModelMap model){
        model.put("author", aServ.getOne(id));
-       return "authorDelete.html";
+       return "Delete.html";
     }
 
 
@@ -162,7 +162,7 @@ public class AuthorController {    //localhost:8080/author
 
         }catch(MyException ex){
             model.put("error", ex.getMessage());
-            return "authorDelete.html";
+            return "Delete.html";
         }
     }
 }

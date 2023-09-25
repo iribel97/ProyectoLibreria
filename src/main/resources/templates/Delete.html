@@ -40,11 +40,11 @@
         <div class="container">
             <form class="form" th:action="@{/author/deleteAuthor/__${author.id}__}" method="POST"
                 enctype="multipart/form-data"> 
-            <input type="hidden" name="id" th:value="${author.id}">
-            <p class="title" style="text-align: center;">Are you sure to delete the author "<span th:text="${author.name}"></span>"</p>
-            <button type="submit" class="btn btn-primary" style="margin-top: 20px">YES</button>
-            <button class="btn btn-primary" style="margin-top: 20px"><a th:href="@{/author/view}">NO</a></button>
-        </form>
+                <input type="hidden" name="id" th:value="${author.id}">
+                <p class="title" style="text-align: center;">Are you sure to delete the author "<span th:text="${author.name}"></span>"</p>
+                <button type="submit" class="btn btn-primary" style="margin-top: 20px">YES</button>
+                <button class="btn btn-primary" style="margin-top: 20px"><a th:href="@{/author/view}">NO</a></button>
+            </form>
         </div>
         
 
