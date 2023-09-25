@@ -7,6 +7,7 @@ package com.egg.springLibrary.repositorios;
 import com.egg.springLibrary.entidades.Book;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -22,4 +23,15 @@ public interface BookRepository extends JpaRepository<Book, Long>{
     
     @Query("SELECT b FROM Book b WHERE b.author.name = :nameAuthor")
     public List<Book> findBookByAuthor(@Param("nameAuthor") String nameAuthor);
+
+    @Query("SELECT b FROM Book b WHERE b.editorial.name = :nameEditorial")
+    public List<Book> findBookByEditorial(@Param("nameEditorial") String nameEditorial);
+
+    @Modifying
+    @Query("DELETE FROM Book b WHERE b.author.id = :idAuthor")
+    public void deleteBookByAuthor(@Param("idAuthor") String idAuthor);
+
+    @Modifying
+    @Query("DELETE FROM Book b WHERE b.editorial.id = :idEditorial")
+    public void deleteBookByEditorial(@Param("idEditorial") String idEditorial);
 }

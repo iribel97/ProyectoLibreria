@@ -68,6 +68,24 @@ public class BookService {
         //Metodo propio del jpaRepo es traer todos los datos de la tabla con el ".findAll()"
         return books;
     }
+
+    //TRAER TODOS LOS LIBROS POR AUTOR -----------------------------------------------------------------------------------------
+    public List<Book> listAllBooksByAuthor(String nameAuthor){
+        List<Book> books = new ArrayList<>();
+        
+        books = bRepo.findBookByAuthor(nameAuthor);
+        
+        return books;
+    }
+
+    //TRAER TODOS LOS LIBROS POR EDITORIAL -----------------------------------------------------------------------------------------
+    public List<Book> listAllBooksByEditorial(String nameEditorial){
+        List<Book> books = new ArrayList<>();
+        
+        books = bRepo.findBookByEditorial(nameEditorial);
+        
+        return books;
+    }
     
     // UPDATE BOOK -----------------------------------------------------------------------------------------------------------
     @Transactional
@@ -104,6 +122,59 @@ public class BookService {
             
             //le guardamos
             bRepo.save(book);
+        }
+    }
+
+    //ELIMINAR LIBRO POR ID ---------------------------------------------------------------------------------------------------
+    @Transactional
+    public void deleteABookByID(Long isbnB) throws MyException{
+        //caso de que el isbn este mal tipeado o que no exista el isbn, se debe de poner el optional
+        Optional<Book> answerB = bRepo.findById(isbnB);
+
+        //Comprobar que si tenga algo
+        if (answerB.isPresent()) {
+            //en caso de que si encuentre
+            Book book = answerB.get(); //Instanciar un objeto de tipo libro
+            
+            //le borramos
+            bRepo.delete(book);
+        }
+
+    }
+
+    //ELIMINAR LIBRO POR AUTOR ---------------------------------------------------------------------------------------------------
+    @Transactional
+    public void deleteBookByAuthorRepo(String idAuthor) throws MyException{
+        //caso de que el isbn este mal tipeado o que no exista el isbn, se debe de poner el optional
+        Optional<Author> answerA = aRepo.findById(idAuthor);
+
+        //Comprobar si trae algo
+        if(answerA.isPresent()){
+            Author author = answerA.get();
+            /*
+            List<Book> books = bRepo.findAll();
+
+            for(Book book : books){
+                if(book.getAuthor().getId().equals(author.getId())){
+                    bRepo.delete(book);
+                }
+            }
+            */
+            bRepo.deleteBookByAuthor(author.getId());
+        } 
+    }
+
+    //ELIMINAR LIBRO POR EDITORIAL ---------------------------------------------------------------------------------------------------
+    @Transactional
+    public void deleteBookByEditorial(String idEditorial) throws MyException{
+        //caso de que el id de la editorial este mal tipeado o que no exista el isbn, se debe de poner el optional
+        Optional<Editorial> answerE = eRepo.findById(idEditorial);
+
+        //Comprobar si trae algo
+        if(answerE.isPresent()){
+            Editorial editorial = answerE.get();
+
+            bRepo.deleteBookByEditorial(editorial.getId());
         }
     }
 

@@ -1,14 +1,18 @@
 package com.egg.springLibrary.controladores;
 
 import com.egg.springLibrary.entidades.Author;
+import com.egg.springLibrary.entidades.Book;
 //import com.egg.springLibrary.entidades.Author;
 import com.egg.springLibrary.excepciones.MyException;
 import com.egg.springLibrary.servicios.AuthorService;
+import com.egg.springLibrary.servicios.BookService;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Calendar;
+import java.util.List;
 
 //import java.util.List;
 //import java.util.logging.Level;
@@ -33,6 +37,8 @@ public class AuthorController {    //localhost:8080/author
 
     @Autowired
     private AuthorService aServ;
+    @Autowired
+    private BookService bServ;
 
     @GetMapping("/form")
     public String author() {  //localhost:8080/author/form
@@ -155,6 +161,13 @@ public class AuthorController {    //localhost:8080/author
     @PostMapping("/deleteAuthor/{id}")
     public String deleteAnAuthor(@PathVariable String id, ModelMap model){
         try {
+
+            //comprobamos que la lista de los libro no este vacia
+            if(!bServ.listAllBooksByAuthor(aServ.getOne(id).getName()).isEmpty()){
+                //en el caso de que no este vacia, se procede a eliminar los libros por autor
+                bServ.deleteBookByAuthorRepo(id);
+            }
+
             //Elimina el autor
             aServ.deleteAnAuthor(id);
             //Redirecciona a la vista de autores

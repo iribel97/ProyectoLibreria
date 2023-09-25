@@ -37,7 +37,7 @@
         </div>
     </header>
     <div class="contenedorBody">
-        <div class="container">
+        <div class="container" th:if="${author!= null}">
             <form class="form" th:action="@{/author/deleteAuthor/__${author.id}__}" method="POST"
                 enctype="multipart/form-data"> 
                 <input type="hidden" name="id" th:value="${author.id}">
@@ -46,7 +46,26 @@
                 <button class="btn btn-primary" style="margin-top: 20px"><a th:href="@{/author/view}">NO</a></button>
             </form>
         </div>
+
+        <div class="container" th:if="${book!= null}">
+            <form class="form" th:action="@{/book/deleteBook/__${book.isbn}__}" method="POST"
+                enctype="multipart/form-data"> 
+                <input type="hidden" name="id" th:value="${book.isbn}">
+                <p class="title" style="text-align: center;">Are you sure to delete the book "<span th:text="${book.title}"></span>"</p>
+                <button type="submit" class="btn btn-primary" style="margin-top: 20px">YES</button>
+                <button class="btn btn-primary" style="margin-top: 20px"><a th:href="@{/book/view}">NO</a></button>
+            </form>
+        </div>
         
+        <div class="container" th:if="${editorial != null}">
+            <form class="form" th:action="@{/editorial/deleteEditorial/__${editorial.id}__}" method="POST"
+                enctype="multipart/form-data"> 
+                <input type="hidden" name="id" th:value="${editorial.id}">
+                <p class="title" style="text-align: center;">Are you sure to delete the editorial "<span th:text="${editorial.name}"></span>"</p>
+                <button type="submit" class="btn btn-primary" style="margin-top: 20px">YES</button>
+                <button class="btn btn-primary" style="margin-top: 20px"><a th:href="@{/editorial/view}">NO</a></button>
+            </form>
+        </div>
 
     </div>
 

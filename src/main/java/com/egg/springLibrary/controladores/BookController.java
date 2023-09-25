@@ -214,4 +214,22 @@ public class BookController {
         }
         return "redirect:../view";
     }
+
+    // METODO PARA ELIMINAR LIBRO --------------------------------------------------------------------
+    @GetMapping("/deleteBook/{isbn}")
+    public String deleteBook(@PathVariable Long isbn, ModelMap model){
+        model.put("book", bookServ.getOne(isbn));
+
+        return "Delete.html";
+    }
+
+    @PostMapping("/deleteBook/{isbn}")
+    public String deleteABook(@PathVariable Long isbn , ModelMap model){
+        try{
+            bookServ.deleteABookByID(isbn);
+            return "redirect:../view";
+        }catch(MyException ex){
+            return "Delete.html";
+        }
+    }
 }

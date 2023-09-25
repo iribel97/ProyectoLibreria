@@ -55,7 +55,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <a class="edit-icon-btm" th:href="@{/book/edit/__${book.isbn}__}">
                         <img src="/IMg/editar.png" alt="Edit" width="20px" height="20px">
                     </a>
-                    <a class="delete-icon-btn">
+                    <a class="delete-icon-btn" th:href="@{/book/deleteBook/__${book.isbn}__}">
                         <img src="/IMG/basura.png" alt="Delete" width="20px" height="20px">
                     </a>
                     
