@@ -4,6 +4,8 @@ package com.egg.springLibrary.servicios;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,8 +13,11 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.egg.springLibrary.entidades.UserEn;
 import com.egg.springLibrary.enumeradores.Rol;
@@ -35,7 +40,7 @@ public class UserService implements UserDetailsService{
         
         user.setName(nombre);
         user.setEmail(email);
-        user.setPassword(password);
+        user.setPassword(new BCryptPasswordEncoder().encode(password));
 
         user.setRol(Rol.USER);
         
@@ -71,6 +76,12 @@ public class UserService implements UserDetailsService{
             GrantedAuthority p = new SimpleGrantedAuthority("ROLE_" + usuario.getRol().toString()); //Permisos
 
             permissions.add(p); //Agregamos los permisos al contenedor
+
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+
+            HttpSession session = attr.getRequest().getSession(true);
+
+            session.setAttribute("usuariosession", usuario);
 
             return new User(usuario.getEmail(), usuario.getPassword(), permissions); //Retornamos el usuario con sus permisos
         } else {

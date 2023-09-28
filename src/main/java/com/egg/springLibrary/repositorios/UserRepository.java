@@ -15,6 +15,6 @@ import com.egg.springLibrary.entidades.UserEn;
 @Repository
 public interface UserRepository extends JpaRepository<UserEn, String>{
     
-    @Query("SELECT u FROM UserEn u WHERE u.email = :email")
+    @Query("SELECT u FROM UserEn u WHERE u.email LIKE :email")
     public UserEn findByEmail(@Param("email")String email);
 }

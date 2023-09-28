@@ -7,45 +7,91 @@
     <!-- Poner un icono para la pagina web -->
     <link rel="icon" href="/IMG/Iri.png" type="image/png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="/CSS/style.css">
     <link rel="stylesheet" href="/CSS/registro.css">
 </head>
 <body >
-
-    <div class="wrapper">
-
-        <form th:action="@{/register}" method="POST">
-            <h1>Register</h1>
-            <div class="input-box">
-                <input type="text" name="name" placeholder="Username" th:value="${name}">
-                <i class='bx bxs-user'></i>
-            </div>
-            <div class="input-box">
-                <input type="email" name="email" placeholder="Email" th:value="${email}">
-                <i class='bx bxs-envelope' ></i>
-            </div>
-            <div class="input-box">
-                <input type="password" name="password" placeholder="Password" th:value="${password}">
-                <i class='bx bxs-lock-alt'></i>
-            </div>
-            <div class="input-box">
-                <input type="password" name="password2" placeholder="Repeat Password">
-                <i class='bx bxs-lock-alt'></i>
-            </div>
-
-            <button type="submit" class="btn">Create An Acount</button>
-
-        </form>
-
-    </div>
-    <div th:if="${error != null}" class="error card text-white bg-danger mb-3 mensajeError">
-        <div class="card-body">
-            <h5 class="card-title">ERROR!</h5>
-            <p class="card-text" th:text="${error}"></p>
+    <header class="cabecera">
+        <div class="cabecera-logo">
+            <img src="/IMG/magic.png" alt="Logo" width="90px" height="90px">
+            <span>Iri's Library</span>
         </div>
-    </div>
+        <div class="cabecera-nav">
+            <div class="cabecera-nav-login">
+                <i class="fi fi-sr-home"></i>
+                <a th:href="@{/}">Home</a>
+            </div>
+        </div>
+        
+    </header>
+    <section class="body">
+        <div th:if="${error != null}" class="error-carta">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarVentanaEmergente()">&times;</span>
+                <h2>Error!</h2>
+                <p th:text="${error}"></p>
+            </div>
+        </div>
+        <div class="wrapper">
+
+            <form th:action="@{/register}" method="POST">
+                <h1>Register</h1>
+                <div class="input-box">
+                    <input type="text" name="name" placeholder="Username" th:value="${name}">
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email" th:value="${email}">
+                    <i class='bx bxs-envelope' ></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password" th:value="${password}">
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password2" placeholder="Repeat Password">
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
     
+                <button type="submit" class="btn">Create An Acount</button>
+                <div class="register-link">
+                    <p>Do You have an account? <a th:href="@{/login}">Login</a></p>
+                </div>
+    
+            </form>
+    
+        </div>
+
+        
+
+    </section>
+    
+    
+    <footer class="footer">
+        <div class="footer-logo">
+            <img src="/IMG/Imagen4.png" alt="Irina Ochoa" width="100px" height="110px">
+            <span>&copy; 2023 Irina Ochoa</span>
+        </div>
+    </footer>
+    
+    
+
+    <script th:if="${error != null}">
+        function mostrarVentanaEmergente() {
+            var modal = document.querySelector('.error-carta');
+            modal.style.display = 'block';
+        }
+    
+        function cerrarVentanaEmergente() {
+            var modal = document.querySelector('.error-carta');
+            modal.style.display = 'none';
+        }
+    
+        // Llama a mostrarVentanaEmergente() cuando se carga la página
+        window.onload = mostrarVentanaEmergente;
+    </script>
 </body>
 </html>

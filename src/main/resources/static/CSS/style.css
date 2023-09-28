@@ -1,17 +1,20 @@
 @import url("https://font.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
-* {
+/*
+    PALETA DE COLORES NUEVA
 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
+    1. #F26680
+    2. #D93672
+    3. #73206D
+    4. #F2CCB6
+    5. #F27777
+
+*/
+
+
+
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     background: url(/IMG/fondo2.png) no-repeat center;
     background-size: cover;
@@ -19,14 +22,70 @@ body {
 
 }
 
+/*---- CABECERA -----*/
+.cabecera {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #f26680af;
+    backdrop-filter: blur(20px);
+    z-index: 5;
+
+    .cabecera-logo{
+        width: 200px;
+        align-items: center;
+    }
+
+    .cabecera-nav {
+        text-align: center;
+        width: 200px;
+
+        .cabecera-nav-login{
+            margin: 20% 30% 20% 30%;
+            width: 100px;
+            transition: transform 0.3s;
+            font-weight: 600;
+
+            &:hover{
+                transform: scale(1.05); /* Escalamos el botón un 5% más grande */
+            }
+        }
+    }
+}
+
+.cabecera-nav-login a{
+    text-decoration: none;
+    color: #73206D;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.cabecera-nav-login i {
+    color: #73206D;
+}
+
+/*---- FORMULARIO PARA LOGIN Y REGISTRO -----*/
+
+.section-body {
+    width: 100%;
+}
+
 .wrapper {
     width: 420px;
-    background: transparent;
+    justify-content: center;
+    align-items: center;
     border: 2px solid rgba(255,255,255,.2);
     backdrop-filter: blur(20px);
     padding: 30px 40px;
     color: #fff;
     border-radius: 10px;
+    margin: 50px 0px 0px 35%;
+
+    @media (max-width: 768px){
+        margin: 50px 0px 0px 20%;
+    }
 
     .input-box {
         position: relative;
@@ -118,5 +177,61 @@ body {
 
     &:hover {
         text-decoration: underline;
+    }
+}
+
+/* Estilos para la ventana emergente */
+
+.error-carta{
+    background-color: rgba(254, 5, 5, 0.389);
+    position:absolute;
+    z-index: 20;
+    width: 450px;
+    top: 0;
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(20px);
+    margin: 250px 0px 0px 33.8%;
+
+    @media (max-width: 768px){
+        margin: 250px 0px 0px 17.8%;
+    }
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Estilos para el icono de cierre */
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: rgb(4, 4, 4);
+}
+
+/*--- PIE DE PAGINA ---*/
+.footer {
+    left: 0;
+    width: 100%;
+    margin-top: 50px;
+    background-color: #f26680af;
+    backdrop-filter: blur(20px);
+    z-index: 5;
+    display: flex;
+    color: #fff;
+    font-weight: 600;
+    bottom: 0; /* Esto mantiene el pie de página en la parte inferior de la ventana del navegador. */
+
+    .footer-logo {
+        display: flex;
     }
 }

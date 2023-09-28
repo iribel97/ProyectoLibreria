@@ -13,34 +13,83 @@
 </head>
 <body>
 
-    <div class="wrapper">
-
-        <form action="">
-            <h1>Login</h1>
-            <div class="input-box">
-                <input type="text" placeholder="Email" required>
-                <i class='bx bxs-user'></i>
+    <header class="cabecera">
+        <div class="cabecera-logo">
+            <img src="/IMG/magic.png" alt="Logo" width="90px" height="90px">
+            <span>Iri's Library</span>
+        </div>
+        <div class="cabecera-nav">
+            <div class="cabecera-nav-login">
+                <i class="fi fi-sr-home"></i>
+                <a th:href="@{/}">Home</a>
             </div>
-            <div class="input-box">
-                <input type="password" placeholder="Password" required>
-                <i class='bx bxs-lock-alt'></i>
+        </div>
+        
+    </header>
+
+    <section class="section-body">
+        <div th:if="${error != null}" class="error-carta">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarVentanaEmergente()">&times;</span>
+                <h2>Error!</h2>
+                <p th:text="${error}"></p>
             </div>
+        </div>
 
-            <div class="remember-forgot">
-                <label>
-                    <input type="checkbox"> Remember me
-                </label>
-                <a href="">Forgot password?</a>
-            </div>
+        <div class="wrapper">
 
-            <button type="submit" class="btn">Login</button>
+            <form th:action="@{/logincheck}" method="POST">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Email" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+    
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="">Forgot password?</a>
+                </div>
+    
+                <button type="submit" class="btn">Login</button>
+    
+                <div class="register-link">
+                    <p>Don't have an account? <a th:href="@{/register}">Register here</a></p>
+                </div>
+            </form>
+    
+        </div>
 
-            <div class="register-link">
-                <p>Don't have an account? <a th:href="@{/register}">Register here</a></p>
-            </div>
-        </form>
+    </section>
 
-    </div>
+    <footer class="footer">
+        <div class="footer-logo">
+            <img src="/IMG/Imagen4.png" alt="Irina Ochoa" width="100px" height="110px">
+            <span>&copy; 2023 Irina Ochoa</span>
+        </div>
+    </footer>
+    
+    
+
+    <script th:if="${error != null}">
+        function mostrarVentanaEmergente() {
+            var modal = document.querySelector('.error-carta');
+            modal.style.display = 'block';
+        }
+    
+        function cerrarVentanaEmergente() {
+            var modal = document.querySelector('.error-carta');
+            modal.style.display = 'none';
+        }
+    
+        // Llama a mostrarVentanaEmergente() cuando se carga la página
+        window.onload = mostrarVentanaEmergente;
+    </script>
 
     
 </body>
