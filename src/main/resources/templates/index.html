@@ -16,12 +16,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <!-- Link de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel="stylesheet" href="/CSS/style.css">
     <link rel="stylesheet" href="/CSS/index.css">
 
 </head>
 
 <body>
-    <header class="barraInicial">
+    <header class="cabecera">
+        <div class="cabecera-logo">
+            <img src="/IMG/magic.png" alt="Logo" width="90px" height="90px">
+            <span class="cabecera-logo-text">Iri's Library</span>
+        </div>
+        <div class="cabecera-nav">
+            <div class="cabecera-nav-login">
+                <i class="fi fi-sr-enter"></i>
+                <a th:href="@{/login}">
+                    Login
+                </a>
+            </div>
+            <div class="cabecera-nav-login">
+                <i class="fi fi-rr-user-add"></i>
+                <a th:href="@{/register}">
+                    Register
+                </a>
+            </div>
+        </div>
+        
+    </header>
+    <!--
+        <header class="barraInicial">
         <div class="imagenLogo">
             <a href="#">
                 <img src="/IMG/magic.png" width="80" height="80">
@@ -44,9 +69,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             
         </div>
     </header>
+    -->
+    
     <div class="contenedorBody">
 
-        HOLA MUNDO CRUEL
+        <div>
+            <img src="/IMG/image1.png" alt="">
+        </div>
     </div>
 
 

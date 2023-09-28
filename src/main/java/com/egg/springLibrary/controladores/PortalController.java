@@ -60,7 +60,7 @@ public class PortalController {
         }
         return "login.html"; //devolver la vista
     }
-    /*
+    
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/inicio")
@@ -74,5 +74,5 @@ public class PortalController {
         
            return "inicio.html";
     }
-    */
+
 }

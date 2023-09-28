@@ -10,16 +10,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&family=Maven+Pro&family=Meow+Script&family=Parisienne&family=Petit+Formal+Script&family=Playfair+Display&family=Rouge+Script&family=Sofia&family=Urbanist:wght@300&display=swap');
 
 /*
-COLOR 1: #F2D7D9  ---- rgb(242, 215, 217)   -> Color de fondo
-COLOR 2: #D3CEDF  ---- rgb(211, 206, 223)
-COLOR 3: #9CB4CC  ---- rgb(156, 180, 204)   
-COLOR 4: #f9e4e6b8  ---- rgb(116, 141, 166)   -> Color de texto
+    PALETA DE COLORES NUEVA
+
+    1. #F26680
+    2. #D93672
+    3. #73206D
+    4. #F2CCB6
+    5. #F27777
+
+    Botones: font-family: 'M PLUS Rounded 1c', sans-serif;
+
 */
 body {
     margin: 0;
     padding: 0;
     /*background-color: #f9e4e6b8;*/
-    background-image: linear-gradient(to right, rgba(251, 186, 191, 0.541), rgba(161, 149, 190, 0.516));
+    background: #4b01478c;
+
+    background-size: cover;
+    background-position: center;
 }
 
 

@@ -1,4 +1,5 @@
 @import url("https://font.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&family=Meow+Script&family=Parisienne&family=Petit+Formal+Script&family=Playfair+Display&family=Quicksand:wght@500&family=Rouge+Script&family=Sofia&family=Urbanist:wght@300&display=swap');
 
 /*
     PALETA DE COLORES NUEVA
@@ -8,6 +9,8 @@
     3. #73206D
     4. #F2CCB6
     5. #F27777
+
+    Botones: font-family: 'M PLUS Rounded 1c', sans-serif;
 
 */
 
@@ -24,25 +27,35 @@ body {
 
 /*---- CABECERA -----*/
 .cabecera {
-    display: flex;
     width: 100%;
+    display: flex;
     justify-content: space-between;
     background-color: #f26680af;
     backdrop-filter: blur(20px);
     z-index: 5;
 
     .cabecera-logo{
-        width: 200px;
+        width: 300px;
+        display: flex;
         align-items: center;
+
+        .cabecera-logo-text {
+            font-family: 'Quicksand', sans-serif;
+            color: #73206D;
+            font-size: 30px;
+        }
     }
 
     .cabecera-nav {
         text-align: center;
+        display: flex;
+        right: 0;
         width: 200px;
 
         .cabecera-nav-login{
-            margin: 20% 30% 20% 30%;
-            width: 100px;
+            margin: 15% 10px 0% 0%;
+            display: flex;
+            width: 80px;
             transition: transform 0.3s;
             font-weight: 600;
 
@@ -64,6 +77,8 @@ body {
 
 .cabecera-nav-login i {
     color: #73206D;
+    margin-right: 5px;
+    font-size: 20px;
 }
 
 /*---- FORMULARIO PARA LOGIN Y REGISTRO -----*/
