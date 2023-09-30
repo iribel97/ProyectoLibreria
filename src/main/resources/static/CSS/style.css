@@ -51,9 +51,10 @@ body {
         display: flex;
         right: 0;
         width: 200px;
+        gap: 16px;
 
         .cabecera-nav-login{
-            margin: 15% 10px 0% 0%;
+            margin-top: 15%;
             display: flex;
             width: 80px;
             transition: transform 0.3s;
@@ -83,9 +84,7 @@ body {
 
 /*---- FORMULARIO PARA LOGIN Y REGISTRO -----*/
 
-.section-body {
-    width: 100%;
-}
+
 
 .wrapper {
     width: 420px;
