@@ -29,7 +29,6 @@ body {
 .cabecera {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     background-color: #f26680af;
     backdrop-filter: blur(20px);
     z-index: 5;
@@ -38,6 +37,11 @@ body {
         width: 300px;
         display: flex;
         align-items: center;
+        margin: 0px 51% 0px 0px;
+
+        @media (max-width: 768px){
+            margin: 0px 2% 0px 0px;
+        }
 
         .cabecera-logo-text {
             font-family: 'Quicksand', sans-serif;

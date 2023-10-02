@@ -82,7 +82,7 @@ body {
     height: 60px;
     position: right; /* Para que el menú desplegable sea relativo a este div */
     margin-top: 10px;
-    margin-left: 400px;
+    margin-left: 85px;
 }
 
 .user img {
@@ -139,6 +139,7 @@ body {
 /* CONTENEDOR DEL BODY */
 .contenedorBody {
     margin-top: 50px;
+    
     
 }
 
@@ -218,9 +219,9 @@ body {
 /* CSS DE LAS CARTAS */
 /*-----MIO----*/
 .cartasLibreria {
-    margin: 0px 40px 0px 40px;
+    margin: 0px 5px 0px 5px;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente fila si no caben en una sola línea */
 }
 
 /*----------------------------------*/
